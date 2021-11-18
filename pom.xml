@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>2.5.5</version>
+		<relativePath/> <!-- lookup parent from repository -->
+	</parent>
+	<groupId>ontech.event.emitter</groupId>
+	<artifactId>OnTechEventEmitter</artifactId>
+	<version>${app.version}</version>
+	<name>OnTechEventEmitter</name>
+	<description>Munch:ON Event Emitter for Message bus</description>
+	<properties>
+		<java.version>1.8</java.version>
+		<app.version>0.0.1-SNAPSHOT</app.version>
+	</properties>
+	<dependencies>
+
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-stream-binder-rabbit</artifactId>
+			<version>3.1.0</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<version>1.18.20</version>
+			<scope>provided</scope>
+		</dependency>
+
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+				<configuration>
+					<classifier>exec</classifier>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+	<distributionManagement>
+		<snapshotRepository>
+			<id>nexus-snapshots</id>
+			<url>http://localhost:8081/repository/DemoEventEmitter-Snapshot/</url>
+		</snapshotRepository>
+		<repository>
+			<id>nexus-releases</id>
+			<url>http://18.141.51.94:7900/repository/OnTechRabbitMQEventEmitter-releases/</url>
+		</repository>
+	</distributionManagement>
+
+</project>
